@@ -1,4 +1,4 @@
-<a [routerLink]="item.href" class="flex items-center gap-x-4 text-lg text-gray-700 py-2 px-4 hover:bg-gray-300 transition-colors rounded-lg" [ngClass]="{'bg-slate-400/20 text-gray-900': isActive()}">
-  <fa-icon [icon]="item.icon" class="mr-2"></fa-icon>
-  {{ item.label }}
+<a [routerLink]="item.href" class="flex items-center gap-x-4 text-lg text-white py-3 px-4 hover:bg-gray-400/20 transition-colors rounded-lg" [ngClass]="{'bg-blue-500/90 text-white': isActive()}">
+  <fa-icon [icon]="item.icon" class="mr-2 text-white"></fa-icon>
+  <span class="text-white">{{ item.label }}</span>
 </a>

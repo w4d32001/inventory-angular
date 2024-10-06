@@ -1,0 +1,12 @@
+<div class="p-2 shadow-lg hover:shadow-2xl rounded-lg transition-all">
+  <ngx-charts-pie-chart
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="single"
+  [gradient]="gradient"
+  [legend]="showLegend"
+  [labels]="showLabels"
+  [doughnut]="isDougnt"
+  (select)="onSelect($event)">
+</ngx-charts-pie-chart>
+</div>

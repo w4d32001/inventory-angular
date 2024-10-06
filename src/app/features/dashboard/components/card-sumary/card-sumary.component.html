@@ -1,12 +1,31 @@
-<div class={`${item.bg}`}>
-  <div>
-    <fa-icon [icon]="item.icon" />
-    {{ item.title }}
-  </div>
-  <div>
-    {{ item.total }}
-    <p>
-      {{ item.average }}
-    </p>
+<div class='shadow-sm rounded-lg p-5 py-3 hover:shadow-lg transition border border-slate-300 mt-4'>
+  
+    <div class='flex items-center justify-end gap-2 relative py-4'>
+     
+      <div class="absolute w-20 h-20 bg-{{item.bg}}-500 flex items-center justify-center -top-12 left-0 rounded-lg">
+        <fa-icon [icon]="item.icon" class="text-3xl text-white"/>
+      </div>
+      <div class="flex gap-x-4 ">
+        <div class="flex flex-col gap-y-2 ">
+          <span class="ml-20 text-end text-lg font-bold text-slate-800">{{ item.title }}</span>
+          <p class='text-end text-xl'>{{item.total | currency}}</p>
+        </div>
+        <fa-icon [icon]="faCircleInfo" title="{{item.tooltipText}}" class="text-slate-800 hover:text-slate-900/80 cursor-pointer transition-colors absolute -top-3 -right-4 text-xl"/>
+      </div>
+    </div>
+  <div class='flex gap-4 mt-2 md:mt-4 items-center'>
+    
+    <div class="flex items-center gap-x-2 px-2 text-xs text-white rounded-lg h-[20px] py-4" [ngClass]="[item.average < 20 ? 'bg-red-500' : item.average > 20 && item.average < 70 ? 'bg-yellow-500' : 'bg-green-500']">
+      <span class="text-lg ">{{item.average}}</span>
+      @if(item.average < 20){
+        <fa-icon [icon]="faArrowTrendDown" class='h-4 w-4 '></fa-icon>
+      }@else if(item.average > 20 && item.average < 70){
+        <fa-icon [icon]="faArrowTrendUp" class='h-4 w-4'></fa-icon>
+      }@else if(item.average > 70 && item.average < 100){
+        <fa-icon [icon]="faArrowUpRightDots" class='h-4 w-4'></fa-icon>
+      }
+     
+    </div>
+    <span class="text-slate-800/90">{{item.averageText}}</span>
   </div>
 </div>

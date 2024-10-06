@@ -5,6 +5,7 @@ export interface cardSumary{
   total: string
   bg: string
   average: number
+  averageText: string
   title: string
-  tooltipTexct: string
+  tooltipText: string
 }

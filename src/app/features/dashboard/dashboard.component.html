@@ -1,9 +1,13 @@
-<div>
-  <div
-    class="bg-gray-200 p-4 rounded-lg grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
-  >
-    @for (item of dataCardsSumary; track $index) {
-    <app-card-sumary [item]="item" />
-    }
+<div class="overflow-y-auto h-[calc(100vh-80px)]">
+  <div class="p-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-8">
+      @for (item of dataCardsSumary; track $index) {
+      <app-card-sumary [item]="item" />
+      }
+    </div>
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-8 justify-items-center">
+      <app-chart-summary />
+      <app-line-chart-summary />
+    </div>
   </div>
 </div>
