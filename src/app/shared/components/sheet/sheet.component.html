@@ -1,0 +1,18 @@
+@if (isOpen) {
+  <div class="fixed top-0 left-0 bg-gray-900/50 w-full h-full z-50">
+    <div class="w-full h-full flex">
+      <div class="bg-gray-100 w-[70%] h-full">
+        <div class="flex justify-end p-4">
+          <button class="flex items-center justify-center" (click)="closeSheet()">
+            <fa-icon [icon]="faClose" class="text-xl text-red-500 hover:text-red-900"/>
+          </button>
+        </div>
+        <div class="px-8">
+          <app-sidebar/>
+        </div>
+      </div>
+      <div class="w-[30%] h-full" (click)="closeSheet()"></div>
+    </div>
+  </div>
+}
+

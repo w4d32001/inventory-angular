@@ -1,0 +1,11 @@
+<div class=" flex h-full w-full overflow-hidden">
+  <div class="hidden md:flex md:w-68 bg-gray-200 h-full">
+    <app-sidebar/>
+  </div>
+  <div class="flex-1 w-full bg-gray-200">
+    <app-navbar/>
+    <main class="bg-gray-100 p-8">
+      <router-outlet />
+    </main>
+  </div>
+</div>

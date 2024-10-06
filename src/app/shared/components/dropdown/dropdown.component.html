@@ -1,0 +1,32 @@
+<div class="relative inline-block text-left">
+  <div>
+    <button
+      (click)="toggleDropdown()"
+      class="flex items-center gap-3 h-10 w-10 rounded-full bg-gray-100 justify-center"
+      id="options-menu"
+      aria-haspopup="true"
+      aria-expanded="true"
+      title="Perfil"
+    >
+      <fa-icon [icon]="faUser" />
+    </button>
+  </div>
+
+  @if (isOpen) {
+    <div
+    class="absolute right-0 z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="options-menu"
+    tabindex="-1"
+    (mouseleave)="closeDropdown()"
+  >
+    <div class="py-1" role="none">
+      <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Opción 1</a>
+      <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Opción 2</a>
+      <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Opción 3</a>
+    </div>
+  </div>
+  }
+  
+</div>
