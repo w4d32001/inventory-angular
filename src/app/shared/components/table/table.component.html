@@ -1,0 +1,28 @@
+<div class="p-4 shadow-lg hover:shadow-2xl rounded-lg transition-all min-w-full">
+  <div class="my-2">
+    <input type="number" class="bg-gray-200 rounded-lg p-2 outline-none text-center text-slate-600"  min="1" max="100" [value]="pageSize" [(ngModel)]="pageSize" (input)="onPageSizeChange()">
+  </div>
+  <table class="table-auto w-full mb-2">
+    <thead class="">
+      <tr>
+        @for (column of columns; track $index) {
+          <th class="text-slate-800 text-start py-2">{{ column | titlecase }}</th>
+          }
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of paginationData; track $index) {
+      <tr>
+        @for (column of columns; track $index) {
+          <td class="py-3 border-y px-2">{{ item[column] }}</td>
+        }
+      </tr>
+      }
+    </tbody>
+  </table>
+  <div class="flex items-center justify-end gap-2">
+    <button (click)="prevPage()" [disabled]="currentPage === 0" class="py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-blue-300"><fa-icon [icon]="faChevronLeft"/></button>
+    <span class="py-2 px-3 bg-slate-200 text-gray-900 rounded-md">{{ currentPage + 1 }} de {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages - 1" class="py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-blue-300"><fa-icon [icon]="faChevronRight"/></button>
+  </div>
+</div>

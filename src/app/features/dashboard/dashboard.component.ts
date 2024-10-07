@@ -10,11 +10,12 @@ import {
 import { BrowserModule } from '@angular/platform-browser';
 import { ChartSummaryComponent } from "./components/chart-summary/chart-summary.component";
 import { LineChartSummaryComponent } from "./components/line-chart-summary/line-chart-summary.component";
+import { TableComponent } from "../../shared/components/table/table.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CardSumaryComponent, ChartSummaryComponent, LineChartSummaryComponent],
+  imports: [CardSumaryComponent, ChartSummaryComponent, LineChartSummaryComponent, TableComponent],
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent {
