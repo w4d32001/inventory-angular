@@ -1,0 +1,45 @@
+@if (isOpen) {
+  <div
+    class="fixed top-0 left-0 h-screen w-screen z-40 bg-slate-400 opacity-70"
+  ></div>
+  <div
+    class="fixed top-0 left-0 h-screen w-screen z-50 flex items-center justify-center transition-all duration-500"
+  >
+    <div
+      class="bg-white p-6 rounded-lg shadow-lg text-center flex flex-col gap-4 hover:shadow-2xl transition-all w-auto"
+    >
+      <div class="flex items-center justify-between p-4">
+        <span class="text-2xl text-primary-950 uppercase font-bold font-mono">
+          {{ title }}
+        </span>
+        <fa-icon
+          [icon]="faClose"
+          class="text-xl text-red-500 hover:text-red-700/80 cursor-pointer transition-all"
+          (click)="closeModal()"
+          matTooltip="Cerrar"
+        />
+      </div>
+      <app-separator/>
+      <div>
+        
+        <ng-content></ng-content>
+      </div>
+      <div class="flex items-center justify-end gap-4">
+        <button
+          class="py-2 px-4 rounded-lg text-white text-lg capitalize flex gap-4 bg-primary-500 hover:bg-primary-600 transition-colors items-center"
+          type="submit"
+          (click)="saveData()"
+        >
+          <fa-icon [icon]="faSave" /> Guardar
+        </button>
+        <button
+          class="py-2 px-4 rounded-lg text-white text-lg capitalize flex gap-4 bg-red-500 hover:bg-red-600 transition-colors items-center"
+          (click)="closeModal()"
+        >
+          <fa-icon [icon]="faClose" /> Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+  }
+  

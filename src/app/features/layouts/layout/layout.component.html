@@ -5,7 +5,11 @@
   <div class="flex-1 w-full bg-white">
     <app-navbar/>
     <main class="">
+      <div class="overflow-y-auto h-[calc(100vh-80px)]">
+        <div class="p-8">
       <router-outlet />
+      </div>
+    </div>
     </main>
   </div>
 </div>

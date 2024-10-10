@@ -1,0 +1,20 @@
+<div
+  class="flex items-center gap-x-4 shadow-lg hover:shadow-2xl rounded-lg py-2 px-4"
+  [formGroup]="form"
+>
+  <label class="font-mono text-md text-gray-900/90"
+    >{{ label
+    }}<span class="" [ngClass]="required ? 'text-red-500' : 'hidden'"> * </span
+    >:</label
+  >
+  <div class="relative">
+    <input
+      [type]="type"
+      [value]="value"
+      class="outline-none text-sm py-2 pl-3 pr-5 border-b placeholder:text-center placeholder:capitalize border-gray-500/50 text-black/80"
+      [formControlName]="controlName"
+      placeholder="-- {{ placeholder }} --"
+    />
+    <fa-icon [icon]="faCircleXMark" class="absolute top-2 right-0 text-gray-500 cursor-pointer hover:text-red-500" (click)="clearInput()" matTooltip="Limpiar campo" />
+  </div>
+</div>

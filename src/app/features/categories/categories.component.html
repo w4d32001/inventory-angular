@@ -1,0 +1,26 @@
+<div class="shadow-lg hover:shadow-2xl flex items-center justify-between  py-2 px-4 rounded-lg">
+  <div class="flex flex-col gap-y-1">
+    <p class="text-gray-900/80 text-md font-bold font-mono uppercase">Lista de categorias</p>
+    <span class="text-sm font-mono text-gray-950/80">Categoria</span>
+  </div>
+  <button (click)="openModal()" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-700/80 transition-colors flex gap-2 items-center" matTooltip="Nueva Categoria">
+    <fa-icon [icon]="icon" class="text-xl"/> Nuevo
+  </button>
+</div>
+<app-modal [isOpen]="isOpen" (onClose)="closeModal()" (onSave)="saveData()" [title]="currentCategoryId ? 'Editar Categoria' : 'Nueva Categoria'">
+  <ng-content>
+    <form [formGroup]="formCategory">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <app-form-control [form]="formCategory" label="Nombre" controlName="name" type="text" [required]="true" placeholder="Nombre"/>
+        <app-form-control [form]="formCategory" label="Descripcion" controlName="description" type="text" [required]="false" placeholder="Descripcion"/>
+      </div>
+    </form>
+  </ng-content>
+</app-modal>
+
+<div class="mt-8">
+  <app-data-table [displayedColumns]="displayedColumns" [dataSource]="dataSource" [onDelete]="onDelete.bind(this)" [onEdit]="onEdit.bind(this)"/>
+</div>
+
+<app-loader [isLoading]="isLoading" />
+

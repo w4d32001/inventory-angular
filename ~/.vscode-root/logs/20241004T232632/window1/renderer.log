@@ -1,0 +1,5 @@
+2024-10-04 23:26:34.430 [info] Started local extension host with pid 281516.
+2024-10-04 23:26:34.562 [info] Started initializing default profile extensions in extensions installation folder. file:///root/.vscode/extensions
+2024-10-04 23:26:35.093 [info] Completed initializing default profile extensions in extensions installation folder. file:///root/.vscode/extensions
+2024-10-04 23:26:37.846 [info] [perf] Render performance baseline is 34ms
+2024-10-04 23:27:03.076 [warning] [backup tracker] suspended, ignoring unregister event file:///home/morph/Documents/angular/inventory-app/package.json 

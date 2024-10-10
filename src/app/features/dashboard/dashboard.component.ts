@@ -11,14 +11,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ChartSummaryComponent } from "./components/chart-summary/chart-summary.component";
 import { LineChartSummaryComponent } from "./components/line-chart-summary/line-chart-summary.component";
 import { TableComponent } from "../../shared/components/table/table.component";
+import { ModalComponent } from "../../shared/components/modal/modal.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CardSumaryComponent, ChartSummaryComponent, LineChartSummaryComponent, TableComponent],
+  imports: [CardSumaryComponent, ChartSummaryComponent, LineChartSummaryComponent, TableComponent, ModalComponent],
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent {
+  isOpen: boolean = false
+
   dataCardsSumary: cardSumary[] = [
     {
       icon: faHeart,
@@ -69,4 +72,6 @@ export class DashboardComponent {
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Serie A' },
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Serie B' },
   ];
+
+ 
 }

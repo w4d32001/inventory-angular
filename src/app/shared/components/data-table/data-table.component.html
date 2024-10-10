@@ -1,0 +1,48 @@
+<mat-table [dataSource]="dataSource">
+  <!-- Definición de columnas -->
+  <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+    <mat-header-cell *matHeaderCellDef class="flex justify-center"> {{ getTranslatedColumn(column) }} </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="capitalize">
+      <!-- Verificar si la columna es de tipo imagen -->
+      <ng-container *ngIf="column === 'image'; else defaultCell">
+        <img *ngIf="element.image" [src]="element.image" alt="Imagen" style="width: 50px; height: 50px;" />
+      </ng-container>
+      <ng-template #defaultCell>
+        {{ element[column] }}
+      </ng-template>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Acciones: Editar y Eliminar -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef class="flex justify-center"> Acciones </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <div class="flex w-full items-center justify-center gap-x-4 py-2">
+        <button [matMenuTriggerFor]="menu" class="cursor-pointer text-xl flex gap-x-2 border rounded-lg py-2 px-3" matTooltip="Abrir">
+          <fa-icon [icon]="faEllipsisVertical" />
+          <fa-icon [icon]="faCarretDown" />
+        </button>
+        <mat-menu #menu="matMenu">
+          <div class="flex gap-x-2 justify-between px-4">
+            <button mat-icon-button (click)="onEdit(element)" matTooltip="Editar">
+              <mat-icon class="text-blue-900 hover:text-blue-700/80 transition-colors">edit</mat-icon>
+            </button>
+            <hr class="h-auto w-[1px] bg-gray-400">
+            <button mat-icon-button (click)="onDelete(element)" matTooltip="Eliminar">
+              <mat-icon class="text-red-900 hover:text-red-700/80 transition-colors">delete</mat-icon>
+            </button>
+          </div>
+        </mat-menu>
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns.concat('actions')"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns.concat('actions');"></mat-row>
+</mat-table>
+
+<mat-paginator [length]="100"
+               [pageSize]="10"
+               [pageSizeOptions]="[5, 10, 25, 100]"
+               aria-label="Select page">
+</mat-paginator>

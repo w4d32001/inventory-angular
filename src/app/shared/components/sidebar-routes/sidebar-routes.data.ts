@@ -1,4 +1,4 @@
-import { faChartBar, faBuilding, faCalendar, faCog, faShieldAlt, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { faChartBar, faBuilding, faCalendar, faCog, faShieldAlt, faQuestionCircle, faShapes } from '@fortawesome/free-solid-svg-icons';
 import { SidebarItem } from '../sidebar-item/sidebar-item.model';
 export const dataGeneralSidebar: SidebarItem[] = [
     {
@@ -7,9 +7,9 @@ export const dataGeneralSidebar: SidebarItem[] = [
         href: "/"
     },
     {
-        icon: faBuilding,
-        label: "Companies",
-        href: "/companies"
+        icon: faShapes,
+        label: "Categoria",
+        href: "/categories"
     },
     {
         icon: faCalendar,
